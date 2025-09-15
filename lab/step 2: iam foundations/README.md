@@ -60,3 +60,24 @@ aws iam add-user-to-group --user-name DemoDev --group-name Developers
 aws iam create-login-profile --user-name DemoDev --password "********" --password-reset-required
 ```
 
+# Findings / Results
+
+- IAM groups (Admins, Developers, Auditors) were successfully created.
+
+- Attached AWS managed policies aligned with least privilege.
+
+- DemoDev user (in Developers group) could access EC2 and S3 as intended.
+
+- Attempts by DemoDev to access IAM and Billing were denied (as expected).
+
+- MFA was enforced and successfully tested on DemoDev’s login.
+
+# Security Rationale
+
+* Least Privilege: Users gain only the permissions required for their role, reducing the attack surface.
+
+* Separation of Duties: Admins manage the environment, Developers work with resources, Auditors review logs — minimizing overlap that could lead to abuse.
+
+* Scalability: Groups allow permissions to be managed centrally, avoiding insecure ad-hoc user policies.
+
+* Defense in Depth: MFA adds a second authentication factor, protecting accounts even if passwords are compromised.
