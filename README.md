@@ -1,4 +1,4 @@
-# Cloud Security Lab
+# CloudSweeper
 
 This repo is where I've been building out my practical AWS security skills, starting from the fundamentals and working up to something I'm genuinely proud of.
 
