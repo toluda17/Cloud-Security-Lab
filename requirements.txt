@@ -1,0 +1,16 @@
+# CloudSweeper Dependencies
+# ==========================
+# Install with: pip install -r requirements.txt
+
+# AWS SDK
+boto3>=1.34.0
+botocore>=1.34.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Structured report generation
+rich>=13.0.0          # pretty terminal output for the CLI scripts
+
+# Type hints backport (Python 3.9 compatibility)
+typing-extensions>=4.0.0
