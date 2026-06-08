@@ -3,3 +3,7 @@ reports/
 __pycache__/
 *.pyc
 venv/
+*.pyo
+*.pyd
+.DS_Store
+sample_data/*.json

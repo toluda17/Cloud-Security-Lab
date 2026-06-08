@@ -1,4 +1,4 @@
-# CloudSweeper
+# Cloud Security Lab
 
 This repo is where I've been building out my practical AWS security skills, starting from the fundamentals and working up to something I'm genuinely proud of.
 
@@ -38,6 +38,57 @@ Once an alert fires, the response layer decides what to do about it. I've kept t
 
 ---
 
+## Live output
+
+This is the IAM recon module running against my real AWS account. It mapped the full IAM landscape in one run: 2 users, 2 roles, 3 groups, group policy assignments, and the target user's group membership. 12 findings total, 10 API calls.
+
+![IAM recon live output](docs/screenshots/iam_recon_findings.webp)
+
+---
+
+## Setup
+
+```bash
+git clone https://github.com/toluda17/Cloud-Security-Lab.git
+cd Cloud-Security-Lab
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
+```
+
+Open `.env` and fill in your AWS account ID and credentials. Then configure the AWS CLI:
+
+```bash
+aws configure
+```
+
+Verify your identity before running anything:
+
+```bash
+aws sts get-caller-identity
+```
+
+---
+
+## Running the simulation
+
+Each TTP module can be run individually. For example, to run the IAM recon simulation:
+
+```python
+from cloudsweeper.attack.iam_recon import IAMRecon
+
+recon = IAMRecon()
+result = recon.execute()
+
+print('status:', result.status.value)
+print('findings:', len(result.findings))
+for f in result.findings:
+    print(' -', f['type'], ':', f.get('username') or f.get('role_name') or f.get('group_name', ''))
+```
+
+---
+
 ## Lab foundations
 
 Before any of this existed, I spent time getting the AWS environment into a state where it was actually worth attacking. The `lab/` directory documents that work:
@@ -51,4 +102,15 @@ The IAM structure and CloudTrail bucket from those labs are what CloudSweeper ru
 
 ---
 
-*More to come as the project develops: setup instructions, full MITRE coverage table, and a demo walkthrough.*
+## Status
+
+Actively being built. Current progress:
+
+| Module | Status |
+|---|---|
+| `ttp_base.py` - TTP base class | done |
+| `iam_recon.py` - IAM reconnaissance (T1087.004) | done |
+| `s3_enum.py` - S3 enumeration (T1530) | in progress |
+| `privilege_escalation.py` - PassRole/AssumeRole abuse (T1484.001) | coming |
+| Detection engine | coming |
+| Response automation layer | coming |
