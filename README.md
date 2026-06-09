@@ -40,9 +40,13 @@ Once an alert fires, the response layer decides what to do about it. I've kept t
 
 ## Live output
 
-This is the IAM recon module running against my real AWS account. It mapped the full IAM landscape in one run: 2 users, 2 roles, 3 groups, group policy assignments, and the target user's group membership. 12 findings total, 10 API calls.
+**IAM Reconnaissance (T1087.004)** - mapped the full IAM landscape in one run: 2 users, 2 roles, 3 groups, group policy assignments, and the target user's group membership. 12 findings, 10 API calls.
 
 ![IAM recon live output](docs/screenshots/iam_recon_findings.webp)
+
+**S3 Enumeration (T1530)** - discovered the CloudTrail log bucket, confirmed read access, and flagged it as a sensitive bucket based on its name. 3 findings including a live object listing.
+
+![S3 enum live output](docs/screenshots/s3_enum_findings.webp)
 
 ---
 
@@ -73,8 +77,9 @@ aws sts get-caller-identity
 
 ## Running the simulation
 
-Each TTP module can be run individually. For example, to run the IAM recon simulation:
+Each TTP module can be run individually.
 
+**IAM Reconnaissance:**
 ```python
 from cloudsweeper.attack.iam_recon import IAMRecon
 
@@ -85,6 +90,19 @@ print('status:', result.status.value)
 print('findings:', len(result.findings))
 for f in result.findings:
     print(' -', f['type'], ':', f.get('username') or f.get('role_name') or f.get('group_name', ''))
+```
+
+**S3 Enumeration:**
+```python
+from cloudsweeper.attack.s3_enum import S3Enum
+
+s3 = S3Enum()
+result = s3.execute()
+
+print('status:', result.status.value)
+print('findings:', len(result.findings))
+for f in result.findings:
+    print(' -', f['type'], ':', f.get('bucket_name', f.get('detail', '')))
 ```
 
 ---
@@ -110,7 +128,7 @@ Actively being built. Current progress:
 |---|---|
 | `ttp_base.py` - TTP base class | done |
 | `iam_recon.py` - IAM reconnaissance (T1087.004) | done |
-| `s3_enum.py` - S3 enumeration (T1530) | in progress |
-| `privilege_escalation.py` - PassRole/AssumeRole abuse (T1484.001) | coming |
+| `s3_enum.py` - S3 enumeration (T1530) | done |
+| `privilege_escalation.py` - PassRole/AssumeRole abuse (T1484.001) | in progress |
 | Detection engine | coming |
 | Response automation layer | coming |
