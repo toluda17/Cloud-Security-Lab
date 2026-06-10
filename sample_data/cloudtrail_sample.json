@@ -1,0 +1,531 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:00Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListUsers",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:01Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListRoles",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:02Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListGroups",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:03Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListAttachedGroupPolicies",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"groupName": "Admins"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:04Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListAttachedUserPolicies",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"userName": "DemoDev"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:05Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListUserPolicies",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"userName": "DemoDev"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:06Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListGroupsForUser",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"userName": "DemoDev"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:07Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "GetRole",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"roleName": "AdminRole"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:08Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListUsers",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:09Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListRoles",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:10Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListGroups",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:11Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListAttachedGroupPolicies",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"groupName": "Developers"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:12Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListAttachedGroupPolicies",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"groupName": "Auditors"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:13Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListAttachedUserPolicies",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"userName": "DemoDev"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:14Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListUserPolicies",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"userName": "DemoDev"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:15Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "GetRole",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"roleName": "DevRole"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:16Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListGroupsForUser",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"userName": "DemoDev"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:17Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListRoles",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:18Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListUsers",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:19Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListGroups",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:20Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListBuckets",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:21Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListObjectsV2",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"bucketName": "my-cloudtrail-logs-123456789012"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:22Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetBucketPublicAccessBlock",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"bucketName": "my-cloudtrail-logs-123456789012"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:23Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListBuckets",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:24Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListObjectsV2",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"bucketName": "my-cloudtrail-logs-123456789012"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:25Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetBucketAcl",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"bucketName": "my-cloudtrail-logs-123456789012"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:26Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListBuckets",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:27Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListObjectsV2",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"bucketName": "my-cloudtrail-logs-123456789012"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:28Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListBuckets",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:29Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListObjectsV2",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"bucketName": "my-cloudtrail-logs-123456789012"},
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAV5FCB66UXXXXXXXX",
+        "arn": "arn:aws:iam::123456789012:user/DemoDev",
+        "accountId": "123456789012",
+        "userName": "DemoDev"
+      },
+      "eventTime": "2024-01-15T10:30:30Z",
+      "eventSource": "sts.amazonaws.com",
+      "eventName": "AssumeRole",
+      "awsRegion": "eu-west-2",
+      "sourceIPAddress": "203.0.113.1",
+      "requestParameters": {"roleArn": "arn:aws:iam::123456789012:role/AdminRole"},
+      "responseElements": null
+    }
+  ]
+}
