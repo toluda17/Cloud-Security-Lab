@@ -62,7 +62,7 @@ Once an alert fires, the response layer decides what to do about it. It can revo
 ## Setup
 
 ```bash
-git clone https://github.com/toluda17/Cloud-Security-Lab.git
+git clone https://github.com/toluda17/CloudSweeper.git
 cd Cloud-Security-Lab
 python3 -m venv venv
 source venv/bin/activate
