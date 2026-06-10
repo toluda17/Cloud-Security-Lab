@@ -21,30 +21,39 @@ The idea came from wanting to understand both sides of cloud security properly. 
 ### 1. Attack Simulation Engine
 A set of Python modules that simulate attacker techniques mapped to the [MITRE ATT&CK framework](https://attack.mitre.org/). Each technique makes real AWS API calls, the same calls a real attacker would make, so the logs it generates are authentic CloudTrail data and not fabricated events.
 
-The techniques I've implemented so far:
+The techniques implemented:
 - **IAM Reconnaissance** - mapping out users, roles, groups, and attached policies (T1087.004)
 - **S3 Enumeration** - discovering buckets and checking access controls (T1530)
-- **Privilege Escalation** - abusing PassRole and AssumeRole to move to a higher-privileged identity (T1484.001)
+- **Privilege Escalation** - AssumeRole abuse to move to a higher-privileged identity (T1484.001)
 
 Every module is built on a shared base class, so adding new techniques later is straightforward.
 
 ### 2. Detection Engine
-This is the defensive side. It pulls CloudTrail logs from S3, runs them through a set of detection rules, and produces structured alerts ranked by severity. Each alert maps back to the MITRE ATT&CK technique that triggered it, which makes the output actually useful rather than just a list of API calls.
+This is the defensive side. It pulls CloudTrail logs from S3, runs them through a set of detection rules, and produces structured alerts ranked by severity. Each alert maps back to the MITRE ATT&CK technique that triggered it.
 
-The rules I've built target the exact techniques in the simulation engine: recon spikes, privilege escalation chains, and S3 enumeration patterns.
+The three detection rules target the exact techniques in the simulation engine: IAM recon spikes, S3 enumeration patterns, and suspicious AssumeRole activity.
 
 ### 3. Response Automation Layer
-Once an alert fires, the response layer decides what to do about it. I've kept this lean but functional: it can revoke compromised credentials, and it generates a structured incident report in both JSON and Markdown. Everything runs in dry-run mode by default so nothing touches live resources unless I explicitly turn it on.
+Once an alert fires, the response layer decides what to do about it. It can revoke compromised credentials and generates a structured incident report in both JSON and Markdown. Everything runs in dry-run mode by default so nothing touches live resources unless explicitly turned on.
 
 ---
 
 ## Live output
 
-**IAM Reconnaissance (T1087.004)** - mapped the full IAM landscape in one run: 2 users, 2 roles, 3 groups, group policy assignments, and the target user's group membership. 12 findings, 10 API calls.
+**Full pipeline** - all five stages running end-to-end: attack simulation, CloudTrail ingestion, detection, alerting, and response.
+
+![Full pipeline output 1](docs/screenshots/pipeline_output_1.webp)
+![Full pipeline output 2](docs/screenshots/pipeline_output_2.webp)
+
+**Detection engine (offline)** - all three detection rules firing against sample CloudTrail data. Each rule caught its corresponding TTP with the correct MITRE technique ID attached.
+
+![Detection sample output](docs/screenshots/detection_sample_output.webp)
+
+**IAM Reconnaissance (T1087.004)** - 2 users, 2 roles, 3 groups, group policy assignments, and the target user's group membership. 12 findings, 10 API calls.
 
 ![IAM recon live output](docs/screenshots/iam_recon_findings.webp)
 
-**S3 Enumeration (T1530)** - discovered the CloudTrail log bucket, confirmed read access, and flagged it as a sensitive bucket based on its name. 3 findings including a live object listing.
+**S3 Enumeration (T1530)** - discovered the CloudTrail log bucket, confirmed read access, and flagged it as a sensitive bucket. 3 findings including a live object listing.
 
 ![S3 enum live output](docs/screenshots/s3_enum_findings.webp)
 
@@ -75,34 +84,47 @@ aws sts get-caller-identity
 
 ---
 
-## Running the simulation
+## Running it
 
-Each TTP module can be run individually.
-
-**IAM Reconnaissance:**
-```python
-from cloudsweeper.attack.iam_recon import IAMRecon
-
-recon = IAMRecon()
-result = recon.execute()
-
-print('status:', result.status.value)
-print('findings:', len(result.findings))
-for f in result.findings:
-    print(' -', f['type'], ':', f.get('username') or f.get('role_name') or f.get('group_name', ''))
+**Full end-to-end pipeline:**
+```bash
+python3 scripts/run_full_pipeline.py
 ```
 
-**S3 Enumeration:**
+**Individual TTP modules:**
+```bash
+python3 -m cloudsweeper.attack.runner
+```
+
+**Detection engine against sample data (no AWS needed):**
 ```python
-from cloudsweeper.attack.s3_enum import S3Enum
+from cloudsweeper.detection.log_ingestor import LogIngestor
+from cloudsweeper.detection.rule_engine import run_rules
+from cloudsweeper.detection.alert_generator import generate_alerts, print_alerts
+from cloudsweeper.detection.mitre_mapper import enrich_alerts
 
-s3 = S3Enum()
-result = s3.execute()
+events = LogIngestor().load_from_file('sample_data/cloudtrail_sample.json')
+alerts = enrich_alerts(generate_alerts(run_rules(events)))
+print_alerts(alerts)
+```
 
-print('status:', result.status.value)
-print('findings:', len(result.findings))
-for f in result.findings:
-    print(' -', f['type'], ':', f.get('bucket_name', f.get('detail', '')))
+---
+
+## Repo structure
+
+```
+cloudsweeper/
+    attack/         - TTP simulation modules
+    detection/      - log ingestion, rules, alerting, MITRE mapping
+    response/       - credential revocation, report generation
+    utils/          - AWS client factory, logging
+scripts/
+    run_full_pipeline.py
+sample_data/
+    cloudtrail_sample.json  - sanitised log fixture for offline testing
+lab/                - AWS security fundamentals labs (Steps 1-4)
+docs/screenshots/   - live output from each module
+ARCHITECTURE.md     - full system design walkthrough
 ```
 
 ---
@@ -120,15 +142,6 @@ The IAM structure and CloudTrail bucket from those labs are what CloudSweeper ru
 
 ---
 
-## Status
+## What I learned building this
 
-Actively being built. Current progress:
-
-| Module | Status |
-|---|---|
-| `ttp_base.py` - TTP base class | done |
-| `iam_recon.py` - IAM reconnaissance (T1087.004) | done |
-| `s3_enum.py` - S3 enumeration (T1530) | done |
-| `privilege_escalation.py` - PassRole/AssumeRole abuse (T1484.001) | in progress |
-| Detection engine | coming |
-| Response automation layer | coming |
+My background is blue team: detection, monitoring, threat hunting. I came into this project knowing how to defend but not really knowing how to think like the person I was defending against, and building the attack simulation engine changed that. Writing code that deliberately enumerates IAM, reads S3 buckets it probably shouldn't, and tries to assume roles makes you see your own AWS environment very differently. Python and Boto3 got a lot more natural too. This was the first time I was building a proper multi-module project rather than just scripts, and I was still Googling AWS CLI commands mid-project just to double-check I had the syntax right. The thing that clicked most though was how detection engineering actually works in practice. Writing a rule that fires on a real CloudTrail event from a simulation I just ran is a completely different experience from reading about it in a blog post. Seeing `detect_iam_recon fired 1 alert(s)` in the terminal after running the attack module is one of those moments where something just properly makes sense.
